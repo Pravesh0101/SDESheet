@@ -23,6 +23,21 @@ class LFUCache {
         this.cache = new HashMap<>();
         this.frequencyMap = new HashMap<>();
     }
+    class DLLNode {
+        int key;
+        int val;
+        int frequency;
+        DLLNode prev;
+        DLLNode next;
+
+        public DLLNode(int key, int val) {
+            this.key = key;
+            this.val = val;
+            this.frequency = 1;
+        }
+    }
+
+
 
     /** get node value by key, and then update node frequency as well as relocate that node **/
     public int get(int key) {
@@ -101,19 +116,7 @@ class LFUCache {
     * @param prev: previous pointer of current node
     * @param next: next pointer of current node
     * */
-    class DLLNode {
-        int key;
-        int val;
-        int frequency;
-        DLLNode prev;
-        DLLNode next;
-
-        public DLLNode(int key, int val) {
-            this.key = key;
-            this.val = val;
-            this.frequency = 1;
-        }
-    }
+    
 
     /*
     * @param listSize: current size of double linked list
